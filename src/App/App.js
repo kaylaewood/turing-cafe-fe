@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import ReservationContainer from '../ReservationContainer/ReservationContainer';
-import Form from '../Form/Form'
+import Form from '../Form/Form';
+import { getReservations, postReservation } from '../apiCalls/apiCalls';
 
 class App extends Component {
   constructor() {
@@ -12,8 +13,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/api/v1/reservations')
-    .then(response => response.json())
+    getReservations()
     .then(data => {
       this.setState({
         reservations: data
@@ -22,17 +22,14 @@ class App extends Component {
   }
 
   submitReservation = (name, date, time, number) => {
-    fetch('http://localhost:3001/api/v1/reservations', {
-      method: 'POST',
-      body: JSON.stringify({
-        name: name,
-        date: date,
-        time: time,
-        number: parseInt(number)
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
+    postReservation(name, date, time, number)
+    .then(response => {
+      getReservations()
+      .then(data => {
+        this.setState({
+          reservations: data
+        })
+      })
     })
   }
 

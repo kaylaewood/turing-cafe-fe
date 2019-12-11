@@ -10,3 +10,9 @@ input,
   padding: .3vw;
   width: 15vw;
 }
+
+.sort-button {
+  font-size: 1.3vw;
+  padding: .3vw;
+  background-color: #FFBF00;
+}

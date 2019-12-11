@@ -6,3 +6,12 @@
   padding: 1vw;
   margin: 2vw;
 }
+
+.cancel-reservation {
+  width: 90%;
+  margin: auto;
+  background-color: teal;
+  color: white;
+  font-size: 1.3vw;
+  padding: .3vw;
+}

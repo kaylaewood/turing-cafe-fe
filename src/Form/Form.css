@@ -1,0 +1,12 @@
+.reserve-button {
+  background-color: teal;
+  color: white;
+}
+
+input,
+.reserve-button {
+  margin-right: 2vw;
+  font-size: 1.3vw;
+  padding: .3vw;
+  width: 15vw;
+}

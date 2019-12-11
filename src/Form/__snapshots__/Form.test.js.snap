@@ -36,5 +36,12 @@ exports[`Form should match snapshot as expected 1`] = `
   >
     Make Reservation
   </button>
+  <br />
+  <button
+    className="sort-button"
+    onClick={[Function]}
+  >
+    Sort by Date
+  </button>
 </form>
 `;

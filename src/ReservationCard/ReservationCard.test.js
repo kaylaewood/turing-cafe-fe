@@ -23,6 +23,6 @@ describe('ReservationCard', () => {
 
   it('should invoke cancelReservation when button is clicked', () => {
     wrapper.find('button').simulate('click');
-    expect(cancelReservationMock).toHaveBeenCalled();
+    expect(cancelReservationMock).toHaveBeenCalledWith('1');
   })
 })

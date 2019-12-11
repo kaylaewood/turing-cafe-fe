@@ -29,8 +29,14 @@ describe('Form', () => {
     expect(wrapper.state('name')).toEqual('Robbie');
   })
 
-  it('should invoke submitReservation when button is clicked', () => {
+  it('should invoke submitReservation when button is clicked with correct information', () => {
+    wrapper.setState({
+      name: 'Eric',
+      date: '12/03',
+      time: '1:30',
+      number: '4'
+    })
     wrapper.find('button').simulate('click');
-    expect(submitReservationMock).toHaveBeenCalled();
+    expect(submitReservationMock).toHaveBeenCalledWith('Eric', '12/03', '1:30', '4');
   })
 })

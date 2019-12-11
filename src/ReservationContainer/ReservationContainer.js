@@ -2,13 +2,21 @@ import React, { Component } from 'react';
 import './ReservationContainer.css';
 import ReservationCard from '../ReservationCard/ReservationCard'
 
-const ReservationContainer = () => {
-  return (
-    <section className='reservation-container'>
-      <h2>CONTAINER</h2>
+class ReservationContainer extends Component {
+  constructor() {
+    super()
+    this.state = {
+      reservations: []
+    }
+  }
+
+  render() {
+    return (
+      <section className='reservation-container'>
       <ReservationCard />
-    </section>
-  )
+      </section>
+    )
+  }
 }
 
 export default ReservationContainer;

@@ -17,5 +17,11 @@ exports[`ReservationCard should match snapshot as expected 1`] = `
     Number of Guests: 
     3
   </p>
+  <button
+    className="cancel-reservation"
+    onClick={[Function]}
+  >
+    Cancel
+  </button>
 </div>
 `;

@@ -50,7 +50,8 @@ class Form extends Component {
           onChange={event => this.handleChange(event)}
         />
         <button className='reserve-button' onClick={() => this.props.submitReservation(this.state.name, this.state.date, this.state.time, this.state.number)}>Make Reservation</button>
-        <button className='sort-button' onClick={(event) => this.props.sortReservations(event)}>Sort</button>
+        <br />
+        <button className='sort-button' onClick={(event) => this.props.sortReservations(event)}>Sort by Date</button>
       </form>
     )
   }

@@ -39,6 +39,8 @@ class App extends Component {
   }
 
   sortReservations = (event) => {
+    event.preventDefault();
+
     let numifyDate = (string) => {
       let stringArray = string.split('/');
       if (stringArray[1].length < 2) {
@@ -47,7 +49,6 @@ class App extends Component {
       return parseInt(stringArray.join(''))
     }
 
-    event.preventDefault();
     let sortedReservations = this.state.reservations.map(reservation => {
       return {
         id: reservation.id,

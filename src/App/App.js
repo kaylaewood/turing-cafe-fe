@@ -32,6 +32,9 @@ class App extends Component {
 
   cancelReservation = (id) => {
     console.log(id);
+    fetch(`http://localhost:3001/api/v1/reservations/${id}`, {
+      method: 'DELETE'
+    })
   }
 
   render() {

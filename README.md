@@ -64,6 +64,6 @@ Now that the functionality is there, write some tests.  It is not necessary to t
 
 ### Extensions
 
-- [ ]  Now try testing your API calls.  Try writing out a few tests including happy path and sad path testing.
+- [ ]  *IN PROGRESS* Now try testing your API calls.  Try writing out a few tests including happy path and sad path testing.
 
 - [x] Add a button or drop down so that the user has the option to sort their reservates by date from earliest to latest or latest to earliest.

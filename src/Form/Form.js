@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './Form.css';
 
 class Form extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       name: '',
       date: '',
@@ -49,7 +49,7 @@ class Form extends Component {
           placeholder='Number of Guests'
           onChange={event => this.handleChange(event)}
         />
-        <button className='reserve-button'>Make Reservation</button>
+        <button className='reserve-button' onClick={() => this.props.submitReservation(this.state.name, this.state.date, this.state.time, this.state.number)}>Make Reservation</button>
       </form>
     )
   }

@@ -21,15 +21,34 @@ class App extends Component {
     })
   }
 
+  submitReservation = (name, date, time, number) => {
+    fetch('http://localhost:3001/api/v1/reservations', {
+      method: 'POST',
+      body: JSON.stringify({
+        name: name,
+        date: date,
+        time: time,
+        number: parseInt(number)
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <div className='resy-form'>
-          <Form />
+          <Form
+            submitReservation={this.submitReservation}
+          />
         </div>
         <div className='resy-container'>
-          <ReservationContainer reservations={this.state.reservations}/>
+          <ReservationContainer
+            reservations={this.state.reservations}
+          />
         </div>
       </div>
     )

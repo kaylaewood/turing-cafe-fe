@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import ReservationContainer from '../ReservationContainer/ReservationContainer';
 import Form from '../Form/Form';
-import { getReservations, postReservation } from '../apiCalls/apiCalls';
+import { getReservations, postReservation, deleteReservation } from '../apiCalls/apiCalls';
 
 class App extends Component {
   constructor() {
@@ -15,6 +15,7 @@ class App extends Component {
   componentDidMount() {
     getReservations()
     .then(data => this.updateState(data))
+    .catch(error => console.log(error))
   }
 
   updateState = (data) => {
@@ -28,14 +29,13 @@ class App extends Component {
     .then(getReservations()
       .then(data => this.updateState(data))
     )
+    .catch(error => console.log(error))
   }
 
   cancelReservation = (id) => {
-    fetch(`http://localhost:3001/api/v1/reservations/${id}`, {
-      method: 'DELETE'
-    })
-    .then(response => response.json())
+    deleteReservation(id)
     .then(data => this.updateState(data))
+    .catch(error => console.log(error))
   }
 
   sortReservations = (event) => {

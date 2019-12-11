@@ -12,7 +12,7 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
+  updateReservations = () => {
     getReservations()
     .then(data => {
       this.setState({
@@ -21,16 +21,13 @@ class App extends Component {
     })
   }
 
+  componentDidMount() {
+    this.updateReservations();
+  }
+
   submitReservation = (name, date, time, number) => {
     postReservation(name, date, time, number)
-    .then(response => {
-      getReservations()
-      .then(data => {
-        this.setState({
-          reservations: data
-        })
-      })
-    })
+    .then(this.updateReservations())
   }
 
   render() {

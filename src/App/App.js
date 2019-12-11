@@ -12,6 +12,10 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    this.updateReservations();
+  }
+
   updateReservations = () => {
     getReservations()
     .then(data => {
@@ -21,13 +25,13 @@ class App extends Component {
     })
   }
 
-  componentDidMount() {
-    this.updateReservations();
-  }
-
   submitReservation = (name, date, time, number) => {
     postReservation(name, date, time, number)
     .then(this.updateReservations())
+  }
+
+  cancelReservation = (id) => {
+    console.log(id);
   }
 
   render() {
@@ -42,6 +46,7 @@ class App extends Component {
         <div className='resy-container'>
           <ReservationContainer
             reservations={this.state.reservations}
+            cancelReservation={this.cancelReservation}
           />
         </div>
       </div>

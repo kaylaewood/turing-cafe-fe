@@ -20,11 +20,23 @@ class ReservationContainer extends Component {
     })
   }
 
-  <ReservationCard />
+  renderCards = () => {
+    return this.state.reservations.map(reservation => {
+      return <ReservationCard
+        id={reservation.id}
+        name={reservation.name}
+        date={reservation.date}
+        time={reservation.time}
+        number={reservation.number}
+        key={reservation.id}
+      />
+    })
+  }
 
   render() {
     return (
       <section className='reservation-container'>
+        {this.renderCards()}
       </section>
     )
   }

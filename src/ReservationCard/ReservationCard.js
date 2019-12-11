@@ -1,9 +1,9 @@
 import React from 'react';
 import './ReservationCard.css';
 
-const ReservationCard = () => {
+const ReservationCard = ({ id, name, date, time, number }) => {
   return(
-    <p>CARD</p>
+    <p>{name}</p>
   )
 }
 

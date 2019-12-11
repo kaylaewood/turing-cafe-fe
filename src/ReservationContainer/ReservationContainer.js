@@ -10,10 +10,21 @@ class ReservationContainer extends Component {
     }
   }
 
+  componentDidMount() {
+    fetch('http://localhost:3001/api/v1/reservations')
+    .then(response => response.json())
+    .then(data => {
+      this.setState({
+        reservations: data
+      })
+    })
+  }
+
+  <ReservationCard />
+
   render() {
     return (
       <section className='reservation-container'>
-      <ReservationCard />
       </section>
     )
   }

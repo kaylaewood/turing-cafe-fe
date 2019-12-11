@@ -3,7 +3,12 @@ import './ReservationCard.css';
 
 const ReservationCard = ({ id, name, date, time, number }) => {
   return(
-    <p>{name}</p>
+    <div className='card'>
+      <h2>{name}</h2>
+      <p>{date}</p>
+      <p>{time}</p>
+      <p>`Number of Guests: ${number}`</p>
+    </div>
   )
 }
 

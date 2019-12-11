@@ -15,6 +15,7 @@ class App extends Component {
   componentDidMount() {
     getReservations()
     .then(data => this.updateState(data))
+    .catch(error => console.log(error))
   }
 
   updateState = (data) => {
@@ -28,11 +29,13 @@ class App extends Component {
     .then(getReservations()
       .then(data => this.updateState(data))
     )
+    .catch(error => console.log(error))
   }
 
   cancelReservation = (id) => {
     deleteReservation(id)
     .then(data => this.updateState(data))
+    .catch(error => console.log(error))
   }
 
   sortReservations = (event) => {

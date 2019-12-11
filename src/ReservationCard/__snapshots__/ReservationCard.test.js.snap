@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReservationCard should match snapshot as expected 1`] = `
+<div
+  className="card"
+>
+  <h2>
+    Kayla
+  </h2>
+  <p>
+    12/03
+  </p>
+  <p>
+    2:45
+  </p>
+  <p>
+    Number of Guests: 
+    3
+  </p>
+</div>
+`;

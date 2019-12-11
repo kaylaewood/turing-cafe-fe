@@ -13,21 +13,21 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.updateReservations();
+    getReservations()
+    .then(data => this.updateState(data))
   }
 
-  updateReservations = () => {
-    getReservations()
-    .then(data => {
-      this.setState({
-        reservations: data
-      })
+  updateState = (data) => {
+    this.setState({
+      reservations: data
     })
   }
 
   submitReservation = (name, date, time, number) => {
     postReservation(name, date, time, number)
-    .then(this.updateReservations())
+    .then(getReservations()
+      .then(data => this.updateState(data))
+    )
   }
 
   cancelReservation = (id) => {
@@ -36,9 +36,7 @@ class App extends Component {
       method: 'DELETE'
     })
     .then(response => response.json())
-    .then(data => this.setState({
-      reservations: data
-    }))
+    .then(data => this.updateState(data))
   }
 
   render() {

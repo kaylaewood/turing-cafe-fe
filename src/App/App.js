@@ -31,12 +31,46 @@ class App extends Component {
   }
 
   cancelReservation = (id) => {
-    console.log(id);
     fetch(`http://localhost:3001/api/v1/reservations/${id}`, {
       method: 'DELETE'
     })
     .then(response => response.json())
     .then(data => this.updateState(data))
+  }
+
+  sortReservations = (event) => {
+    let numifyDate = (string) => {
+      let stringArray = string.split('/');
+      if (stringArray[1].length < 2) {
+        return `${stringArray[0]}0${stringArray[1]}`
+      }
+      return parseInt(stringArray.join(''))
+    }
+
+    event.preventDefault();
+    let sortedReservations = this.state.reservations.map(reservation => {
+      return {
+        id: reservation.id,
+        name: reservation.name,
+        date: reservation.date,
+        time: reservation.time,
+        number: reservation.number,
+        dateNum: numifyDate(reservation.date)
+      }
+    })
+    .sort((a, b) => {
+      return a.dateNum - b.dateNum
+    })
+    .map(reservation => {
+      return {
+        id: reservation.id,
+        name: reservation.name,
+        date: reservation.date,
+        time: reservation.time,
+        number: reservation.number
+      }
+    })
+    this.updateState(sortedReservations)
   }
 
   render() {
@@ -46,6 +80,7 @@ class App extends Component {
         <div className='resy-form'>
           <Form
             submitReservation={this.submitReservation}
+            sortReservations={this.sortReservations}
           />
         </div>
         <div className='resy-container'>

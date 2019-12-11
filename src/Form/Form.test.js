@@ -36,7 +36,7 @@ describe('Form', () => {
       time: '1:30',
       number: '4'
     })
-    wrapper.find('button').simulate('click');
+    wrapper.find('.reserve-button').simulate('click');
     expect(submitReservationMock).toHaveBeenCalledWith('Eric', '12/03', '1:30', '4');
   })
 })

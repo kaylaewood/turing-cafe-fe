@@ -13,6 +13,7 @@ exports[`App should match snapshot as expected 1`] = `
     className="resy-form"
   >
     <Form
+      sortReservations={[Function]}
       submitReservation={[Function]}
     />
   </div>

@@ -4,6 +4,23 @@ import ReservationContainer from '../ReservationContainer/ReservationContainer';
 import Form from '../Form/Form'
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      reservations: []
+    }
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3001/api/v1/reservations')
+    .then(response => response.json())
+    .then(data => {
+      this.setState({
+        reservations: data
+      })
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -12,7 +29,7 @@ class App extends Component {
           <Form />
         </div>
         <div className='resy-container'>
-          <ReservationContainer />
+          <ReservationContainer reservations={this.state.reservations}/>
         </div>
       </div>
     )

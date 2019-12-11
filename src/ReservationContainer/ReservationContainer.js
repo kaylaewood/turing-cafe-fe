@@ -2,26 +2,9 @@ import React, { Component } from 'react';
 import './ReservationContainer.css';
 import ReservationCard from '../ReservationCard/ReservationCard'
 
-class ReservationContainer extends Component {
-  constructor() {
-    super()
-    this.state = {
-      reservations: []
-    }
-  }
-
-  componentDidMount() {
-    fetch('http://localhost:3001/api/v1/reservations')
-    .then(response => response.json())
-    .then(data => {
-      this.setState({
-        reservations: data
-      })
-    })
-  }
-
-  renderCards = () => {
-    return this.state.reservations.map(reservation => {
+const ReservationContainer = ({ reservations }) => {
+  const renderCards = () => {
+    return reservations.map(reservation => {
       return <ReservationCard
         id={reservation.id}
         name={reservation.name}
@@ -33,13 +16,11 @@ class ReservationContainer extends Component {
     })
   }
 
-  render() {
-    return (
-      <section className='reservation-container'>
-        {this.renderCards()}
-      </section>
-    )
-  }
+  return (
+    <section className='reservation-container'>
+      {renderCards()}
+    </section>
+  )
 }
 
 export default ReservationContainer;

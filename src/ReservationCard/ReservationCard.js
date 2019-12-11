@@ -7,7 +7,7 @@ const ReservationCard = ({ id, name, date, time, number }) => {
       <h2>{name}</h2>
       <p>{date}</p>
       <p>{time}</p>
-      <p>`Number of Guests: ${number}`</p>
+      <p>Number of Guests: {number}</p>
     </div>
   )
 }
